@@ -73,9 +73,6 @@ class AlbumController extends AbstractActionController
             return $this->redirect()->toRoute('album', ['action' => 'index']);
         }
 
-        $this->form->bind($album);
-        $this->form->get('submit')->setAttribute('value', 'Edit');
-
         $viewData = ['id' => $id, 'form' => $this->form];
 
         if (! $this->request->isPost()) {
@@ -89,7 +86,7 @@ class AlbumController extends AbstractActionController
         }
 
         try {
-            $this->table->saveAlbum($album);
+            $this->table->saveAlbum((new Album())->exchangeArray($this->form->getData());
         } catch (\Exception $e) {
         }
 
