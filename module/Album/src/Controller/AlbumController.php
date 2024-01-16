@@ -86,11 +86,14 @@ class AlbumController extends AbstractActionController
         }
 
         try {
-<<<<<<< HEAD
+
             $this->table->saveAlbum((new Album())->exchangeArray($this->form->getData()));
-=======
+
             $this->table->saveAlbum( (new Album() )->exchangeArray( $this->form->getData() ) );
->>>>>>> a63e674f0b7c9481ecd0c3d150fdb47e0522aad9
+            
+            $album = new Album();
+            $album->exchangeArray( $this->form->getData() );
+            $this->table->saveAlbum($album);
         } catch (\Exception $e) {
         }
 
