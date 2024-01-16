@@ -11,24 +11,24 @@ return [
     // The following section is new and should be added to your file:
     'router' => [
         'routes' => [
-                'home' => [
-                'type'    => Literal::class,
+                'album' => [
+                'type'    => Segment::class,
                 'options' => [ //si quiero agregar la ruta con album aqui le agrego /album
-                    'route' => '/',
+                    'route' => '[/:action[/:id]]',
+                    'constraints' => [
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ],
                     'defaults' => [
                         'controller' => Controller\AlbumController::class,
                         'action'     => 'index',
                     ],
                 ],
             ],
-            'home' => [
-                'type'    => Segment::class,
+                'home' => [
+                'type'    => Literal::class,
                 'options' => [ //si quiero agregar la ruta con album aqui le agrego /album
-                    'route' => '/:action[/:id]',
-                    'constraints' => [
-                        'action' => '[a-zA-Z][a-zA-Z0-9_-]+',
-                        'id'     => '[0-9]+',
-                    ],
+                    'route' => '/',
                     'defaults' => [
                         'controller' => Controller\AlbumController::class,
                         'action'     => 'index',
