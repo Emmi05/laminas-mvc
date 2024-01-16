@@ -82,7 +82,6 @@ class AlbumController extends AbstractActionController
             return $viewData;
         }
 
-        $this->form->setInputFilter($album->getInputFilter());
         $this->form->setData($this->request->getPost());
 
         if (! $this->form->isValid()) {
