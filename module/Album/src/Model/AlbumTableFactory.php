@@ -16,11 +16,13 @@ final class AlbumTableFactory implements FactoryInterface
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
         return new $requestedName(
-                  'album',
+                  new TableGateway(
+                      'album',
         $container->get(AdapterInterface::class),
         null,
         new ResultSet(new Album()),
         null
+                  )
         );
     }
 }
