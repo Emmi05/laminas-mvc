@@ -26,7 +26,16 @@ return [
             ],
         ],
     ],
-
+    'controllers' => [
+        'factories' => [
+            Controller\AlbumController::class => Controller\AlbumControllerFactory::class,
+        ],
+    ],
+    'form_elements' => [
+        'factories' => [
+            Form\AlbumForm::class => Form\AlbumFormFactory::class,
+        ],
+    ],
     'view_manager' => [
         'template_path_stack' => [
             'album' => __DIR__ . '/../view',
