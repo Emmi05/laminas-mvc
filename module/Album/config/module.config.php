@@ -37,6 +37,11 @@ return [
             ],
         ],
     ],
+    'service_manager' => [
+        'factories'   => [
+            Model\AlbumTable::class => Model\AlbumTableFactory::class,
+        ],
+    ],
     'controllers' => [
         'factories' => [
             Controller\AlbumController::class => Controller\AlbumControllerFactory::class,
