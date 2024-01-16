@@ -15,7 +15,7 @@ final class AlbumTableFactory implements FactoryInterface
     /** @inheritDoc*/
     public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
     {
-        return $requestedName(
+        return new $requestedName(
                   'album',
         $container->get(AdapterInterface::class),
         null,
